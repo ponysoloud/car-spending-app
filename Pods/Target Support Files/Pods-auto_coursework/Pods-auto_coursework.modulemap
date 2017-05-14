@@ -1,0 +1,6 @@
+framework module Pods_auto_coursework {
+  umbrella header "Pods-auto_coursework-umbrella.h"
+
+  export *
+  module * { export * }
+}
