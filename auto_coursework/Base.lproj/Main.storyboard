@@ -566,15 +566,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPd-4z-btJ">
-                                <rect key="frame" x="23" y="60" width="289" height="207"/>
+                                <rect key="frame" x="23" y="53" width="289" height="200"/>
                                 <color key="backgroundColor" red="0.97999999999999998" green="0.97999999999999998" blue="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СРЕДНИЙ РАСХОД ТОПЛИВА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIt-vl-qLj">
+                                <rect key="frame" x="23" y="260" width="289" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97999999999999998" green="0.97999999999999998" blue="0.97999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="fIt-vl-qLj" firstAttribute="leading" secondItem="oJc-5A-MFT" secondAttribute="leadingMargin" constant="7" id="5fd-Ic-VXp"/>
                             <constraint firstAttribute="trailing" secondItem="oPd-4z-btJ" secondAttribute="trailing" constant="23" id="Fdz-sy-jP5"/>
-                            <constraint firstItem="oPd-4z-btJ" firstAttribute="top" secondItem="iKL-aQ-kJ1" secondAttribute="bottom" constant="60" id="Kf1-iL-Bp7"/>
-                            <constraint firstItem="5Py-Mu-9ka" firstAttribute="top" secondItem="oPd-4z-btJ" secondAttribute="bottom" constant="23" id="fkW-Pi-qta"/>
+                            <constraint firstItem="oPd-4z-btJ" firstAttribute="top" secondItem="iKL-aQ-kJ1" secondAttribute="bottom" constant="53" id="Kf1-iL-Bp7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fIt-vl-qLj" secondAttribute="trailing" constant="7" id="aQi-y4-F0r"/>
+                            <constraint firstItem="5Py-Mu-9ka" firstAttribute="top" secondItem="oPd-4z-btJ" secondAttribute="bottom" constant="37" id="fkW-Pi-qta"/>
+                            <constraint firstItem="5Py-Mu-9ka" firstAttribute="top" secondItem="fIt-vl-qLj" secondAttribute="bottom" constant="10" id="ht9-B2-Ttd"/>
+                            <constraint firstItem="fIt-vl-qLj" firstAttribute="top" secondItem="oPd-4z-btJ" secondAttribute="bottom" constant="7" id="hzp-ZX-tCw"/>
                             <constraint firstItem="oPd-4z-btJ" firstAttribute="leading" secondItem="oJc-5A-MFT" secondAttribute="leading" constant="23" id="uGl-kL-V44"/>
                         </constraints>
                     </view>
@@ -584,7 +594,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyu-z4-5Ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="1726"/>
+            <point key="canvasLocation" x="-234.40000000000001" y="1725.3373313343329"/>
         </scene>
     </scenes>
     <resources>

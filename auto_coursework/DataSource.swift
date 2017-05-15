@@ -69,4 +69,15 @@ class DataSource {
         
     }
     
+    static func getUserConsumption() -> Double {
+        return 3
+    }
+    
+    static func getUserDispersion() -> Double {
+        return 1
+    }
+    
+    static func getUserExpectedValue() -> Double {
+        return 0
+    }
 }
