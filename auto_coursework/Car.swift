@@ -6,16 +6,22 @@
 //  Copyright © 2017 Alexander Ponomarev. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Car: NSObject {
+class Car {
     
     var name: String!
+    var descr: String = ""
+    var image: String = ""
+    var index: CarIndex?
+    
+    init (json: Dictionary<String, Any>) {
+        descr = json["description"] as! String
+        image = json["image"] as! String
+    }
     
     init(name: String) {
         self.name = name
-        
-        super.init()
     }
 }
 

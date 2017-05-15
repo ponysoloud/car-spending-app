@@ -26,6 +26,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         */
         
+        // Example usage of DataManager
+        /*
+        DataManager.getCarMarks { (marks) in
+            print(marks)
+        }
+        
+        DataManager.getCarModels(mark: "Audi") { (models) in
+            print(models)
+        }
+        
+        DataManager.getCarInfo(mark: "Audi", model: "80") { car in
+            print(car.descr)
+            print(car.image)
+        }
+        
+        DataManager.getCarIndex(mark: "Audi", model: "80") { carIndex in
+            print(carIndex.meanConsumption)
+            print(carIndex.deviationConsumption)
+        }
+        
+        DataManager.getCarStatus(mark: "Audi", model: "80", consumption: 13) { carStatus in
+            print(carStatus.status)
+            print(carStatus.pLevel)
+        }
+        
+        DataManager.sendConsumption(mark: "Audi", model: "80", consumption: 15) { carIndex in
+            print(carIndex.meanConsumption)
+            print(carIndex.deviationConsumption)
+        }
+        
+        DataManager.setCarInfo(mark: "Audi", model: "80", descr: nil, image: "some_image.png") { status in
+            print(status)
+        }
+        
+        DataManager.getCarPriorIndex(mark: "Audi", model: "80") { carIndex in
+            print(carIndex.meanConsumption)
+            print(carIndex.deviationConsumption)
+        }
+        
+        DataManager.setCarPriorIndex(mark: "Audi", model: "80", meanConsumption: 12) { status in
+            print(status)
+        }
+         */
         
         UINavigationBar.appearance().shadowImage = UIImage ()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)

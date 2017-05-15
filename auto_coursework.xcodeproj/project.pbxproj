@@ -34,6 +34,9 @@
 		93D11F501EA8F14A00AC71B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D11F4E1EA8F14A00AC71B9 /* LaunchScreen.storyboard */; };
 		93D11F5B1EA8F14A00AC71B9 /* auto_courseworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D11F5A1EA8F14A00AC71B9 /* auto_courseworkTests.swift */; };
 		93D11F661EA8F14A00AC71B9 /* auto_courseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D11F651EA8F14A00AC71B9 /* auto_courseworkUITests.swift */; };
+		BAE70ECE1EC8A3EF00E82950 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ECD1EC8A3EF00E82950 /* DataManager.swift */; };
+		BAE70ED01ECA005800E82950 /* CarIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ECF1ECA005800E82950 /* CarIndex.swift */; };
+		BAE70ED21ECA054600E82950 /* CarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ED11ECA054600E82950 /* CarStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		93D11F651EA8F14A00AC71B9 /* auto_courseworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = auto_courseworkUITests.swift; sourceTree = "<group>"; };
 		93D11F671EA8F14A00AC71B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4755C46FB355239FE38F2D1 /* Pods_auto_coursework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_auto_coursework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE70ECD1EC8A3EF00E82950 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BAE70ECF1ECA005800E82950 /* CarIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarIndex.swift; sourceTree = "<group>"; };
+		BAE70ED11ECA054600E82950 /* CarStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,8 @@
 				939DE29D1EBB5766004D9083 /* DataSource.swift */,
 				939DE2971EBB3CC2004D9083 /* Car.swift */,
 				939DE2991EBB3D1F004D9083 /* CarStore.swift */,
+				BAE70ECF1ECA005800E82950 /* CarIndex.swift */,
+				BAE70ED11ECA054600E82950 /* CarStatus.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 		93D11F441EA8F14A00AC71B9 /* auto_coursework */ = {
 			isa = PBXGroup;
 			children = (
+				BAE70ECC1EC8A3CB00E82950 /* DataManager */,
 				93D11F451EA8F14A00AC71B9 /* AppDelegate.swift */,
 				939DE2A51EBCB376004D9083 /* Model */,
 				939DE2A71EBCB416004D9083 /* Controller */,
@@ -220,6 +229,14 @@
 				93D11F671EA8F14A00AC71B9 /* Info.plist */,
 			);
 			path = auto_courseworkUITests;
+			sourceTree = "<group>";
+		};
+		BAE70ECC1EC8A3CB00E82950 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				BAE70ECD1EC8A3EF00E82950 /* DataManager.swift */,
+			);
+			name = DataManager;
 			sourceTree = "<group>";
 		};
 		FCEBA7CBCBC2255C482383DC /* Frameworks */ = {
@@ -409,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -420,15 +437,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				939DE2A21EBBD226004D9083 /* AddInfoTableViewController.swift in Sources */,
+				BAE70ED21ECA054600E82950 /* CarStatus.swift in Sources */,
 				939DE28E1EBA4923004D9083 /* CustomLabel.swift in Sources */,
 				93D11F481EA8F14A00AC71B9 /* CustomTabBarViewController.swift in Sources */,
 				934856A61EA9184100818E56 /* CustomTabBar.swift in Sources */,
 				939DE29E1EBB5766004D9083 /* DataSource.swift in Sources */,
 				939DE29A1EBB3D1F004D9083 /* CarStore.swift in Sources */,
 				93B1AAF21EB8FC5E0018349E /* UserSettingsViewController.swift in Sources */,
+				BAE70ED01ECA005800E82950 /* CarIndex.swift in Sources */,
 				931C810F1EC61BE800C25DFD /* GraphicViewController.swift in Sources */,
 				939DE2941EBA8AEF004D9083 /* TableViewCell.swift in Sources */,
 				93009A961EBCE45B0028DCCA /* GreetingViewController.swift in Sources */,
+				BAE70ECE1EC8A3EF00E82950 /* DataManager.swift in Sources */,
 				931C81091EC37D7A00C25DFD /* PredictiveTextFieldViewController.swift in Sources */,
 				931C81071EC10A7B00C25DFD /* SetFirstCarTableViewController.swift in Sources */,
 				939DE2AB1EBCC3F6004D9083 /* EdgeShadowLayer.swift in Sources */,
