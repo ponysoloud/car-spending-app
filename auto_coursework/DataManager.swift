@@ -99,40 +99,4 @@ class DataManager {
         }
     }
     
-    /*
-     private class func convertToDictionary(text: String) -> [String: Any]? {
-     if let data = text.data(using: .utf8) {
-     do {
-     return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-     } catch {
-     print(error.localizedDescription)
-     }
-     }
-     return nil
-     }
-     */
-    
-    /*
-    class func GET(){
-        Alamofire.request("http://localhost:5000/car").responseJSON { response in
-            //debugPrint(response)
-            
-            if let result = response.result.value {
-                let JSON = result as! NSDictionary
-                print("JSON: \(JSON["marks"] ?? "none")")
-            }
-        }
-        let parameters: Parameters = [
-            "consumption": 10
-        ]
-        
-        Alamofire.request("http://localhost:5000/car/status/Audi/80", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            
-            if let json = response.result.value {
-                print("JSON: \(json)")
-            }
-        }
-    }
- */
-    
 }
