@@ -15,6 +15,10 @@ class StatisticsOutgoingPanelViewController: UIViewController {
     
     @IBOutlet weak var statisticsView: UIView!
     
+    @IBOutlet weak var userValueLabel: UILabel!
+    
+    @IBOutlet weak var normalValueLabel: UILabel!
+    
     override func viewDidLoad() {
         let viewLayer = view.layer
         viewLayer.cornerRadius = 8
@@ -30,7 +34,10 @@ class StatisticsOutgoingPanelViewController: UIViewController {
         statisticsView.layer.addSublayer(topShadow)
         statisticsView.layer.addSublayer(bottomShadow)
         
-        carNameLabel.text = DataSource.getCurrentCar().name
+        userValueLabel.text = String(format: "%.1f", DataSource.consumption)
+        normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
+        
+        carNameLabel.text = DataSource.userCar.getName()
+        carDetailsLabel.text = DataSource.userCar.descr
     }
-    
 }

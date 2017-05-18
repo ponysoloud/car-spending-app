@@ -15,8 +15,6 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
     enum SenderType: String {
         case brand = "Марка"
         case model = "Модель"
-        case generation = "Поколение"
-        case serie = "Серия"
     }
     
     var senderIndex: Int! {
@@ -25,13 +23,8 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
             switch senderIndex {
             case 0:
                 senderType = SenderType.brand
-            case 1:
-                senderType = SenderType.model
-            case 2:
-                senderType = SenderType.generation
             default:
-                senderType = SenderType.serie
-                
+                senderType = SenderType.model
             }
         }
     }
@@ -45,6 +38,7 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
     @IBOutlet weak var tableView: UITableView!
     
     var autoComplete = [String]()
+    var cars = [String]()
     
     
     override func viewDidLoad() {
@@ -63,6 +57,20 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
         
         let line = EdgeShadowLayer(forView: textFieldView, edge: .Bottom, shadowRadius: 1.5, toColor: UIColor(red:0.56, green:0.60, blue:0.74, alpha:1.00), fromColor: UIColor(red:0.56, green:0.60, blue:0.74, alpha:1.00), opacity: 0.6)
         textFieldView.layer.addSublayer(line)
+        
+        
+        let f : ([String]) -> () = { cars in
+            self.cars = cars
+            self.searchAutocompleteEntriesWithSubstring(substring: "")
+        }
+        
+        switch senderIndex {
+        case 0:
+            DataManager.getCarMarks (completion: f)
+        default:
+            DataManager.getCarModels(mark: DataSource.userCar.mark, completion: f)
+        }
+        
     }
     
     func saveButtonState(isHidden: Bool) {
@@ -89,12 +97,12 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
     func searchAutocompleteEntriesWithSubstring(substring: String) {
         autoComplete.removeAll(keepingCapacity: false)
         
-        for key in DataSource.returnData(index: senderIndex) {
+        for key in cars {
             let myStringL: NSString! = key.lowercased() as NSString
             
             let substringRange: NSRange! = myStringL.range(of: substring.lowercased())
             
-            if substringRange.location == 0 {
+            if substringRange.location == 0 || substring.characters.count == 0 {
                 autoComplete.append(key)
             }
         }
@@ -108,9 +116,6 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
         let substring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
         searchAutocompleteEntriesWithSubstring(substring: substring)
-        
-        //return true
-        
         
         // Force all characters to be uppercase, no matter what.
         let lowercaseCharacters = NSCharacterSet.lowercaseLetters
@@ -153,6 +158,16 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
         
         textField.text = selectedCell.textLabel!.text!.uppercased()
         
+        let text = textField.text!.capitalizedFirst()
+        
+        switch senderIndex {
+        case 0:
+            DataSource.userCar.mark = text
+            DataSource.userCar.model = ""
+        default:
+            DataSource.userCar.model = text
+        }
+        
         clearTable()
         
         saveButtonState(isHidden: false)
@@ -167,15 +182,6 @@ class PredictiveTextFieldViewController: UIViewController, UITextFieldDelegate, 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // get a reference to the second view controller
-        let setFirstCarVC = segue.destination as! SetFirstCarTableViewController
-        
-        // set a variable in the second view controller with the String to pass
-        
-        setFirstCarVC.index = senderIndex
-        let inputData: String = textField.text!
-        setFirstCarVC.returnedData = inputData.capitalizedFirst()
     }
     
 }

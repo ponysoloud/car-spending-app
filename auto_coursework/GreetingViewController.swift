@@ -20,7 +20,6 @@ class GreetingViewController: UIViewController {
         
         greetingLabel.setLineHeight(value: 3.5)
         
-        
         let buttonLayer = continueButton.layer
         buttonLayer.cornerRadius = 8
         

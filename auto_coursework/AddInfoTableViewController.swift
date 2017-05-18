@@ -22,6 +22,12 @@ class AddInfoTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var moneyCell: TableViewCell!
     
+    @IBOutlet weak var rangeField: UITextField!
+    
+    @IBOutlet weak var petrolField: UITextField!
+    
+    @IBOutlet weak var moneyField: UITextField!
+    
     var currentCar: Int?
     
     var currentTextField: UITextField? {
@@ -61,7 +67,9 @@ class AddInfoTableViewController: UITableViewController, UITextFieldDelegate {
             
             if count == 3 {
                 // show button
-                parentView?.saveButtonState(isHidden: false)
+                if stateArray[0] != "0" && stateArray[1] != "0" {
+                    parentView?.saveButtonState(isHidden: false)
+                }
             } else {
                 // hide button
                 parentView?.saveButtonState(isHidden: true)
@@ -80,15 +88,13 @@ class AddInfoTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         autoCell.setShadow()
-        autoCell.textLabel?.text = DataSource.getCurrentCar().name
+        autoCell.textLabel?.text = DataSource.userCar.getName()
         autoCell.selectionStyle = UITableViewCellSelectionStyle.none
         currentCar = 0
         
         rangeCell.setShadow()
         moneyCell.setShadow()
     }
-    
-    
     
     // Actions--------------------------------------
     
@@ -108,7 +114,6 @@ class AddInfoTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func changeCurrentTextField(_ sender: Any) {
         currentTextField = sender as? UITextField
         removeSuffix(targetTextField: currentTextField!)
-        print("changeTF")
     }
     
     @IBAction func dismissKeyboard(_ sender: Any) {
@@ -125,13 +130,11 @@ class AddInfoTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    
     // Set sections header color
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor(red:0.56, green:0.60, blue:0.74, alpha:1.00)
     }
-    
     
     // Реализация функции унаследованной от протокола UITextFieldDelegate, для предотвращения написания чего либо
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -153,7 +156,6 @@ class AddInfoTableViewController: UITableViewController, UITextFieldDelegate {
         } else {
             return true
         }
-        
     }
     
 }

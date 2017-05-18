@@ -12,12 +12,16 @@ import Alamofire
 class DataManager {
     
     private class func request(url:String, method: HTTPMethod, parameters: Parameters?, completion: @escaping (Dictionary<String,Any>) -> Void){
-        Alamofire.request("https://car-app-service.herokuapp.com/" + url, method: method, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        
+        let urlAll = "https://car-app-service.herokuapp.com/" + url
+        print("request: " + urlAll)
+        
+        Alamofire.request(urlAll, method: method, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             //debugPrint(response)
             
             if let result = response.result.value {
-                let JSON = result as! Dictionary<String, Any>
-                completion(JSON)
+                let JSON = result as? Dictionary<String, Any>
+                completion(JSON ?? [String:Any]())
             }
         }
     }

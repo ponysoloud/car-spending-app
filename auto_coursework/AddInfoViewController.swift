@@ -10,7 +10,7 @@ import UIKit
 
 class AddInfoViewController: UIViewController {
 
-    var tableView:  AddInfoTableViewController?
+    var tableView: AddInfoTableViewController?
     
     @IBOutlet weak var saveButton: UIButton!
     
@@ -23,10 +23,11 @@ class AddInfoViewController: UIViewController {
     }
     
     @IBAction func saveData(_ sender: Any) {
-        
+        DataSource.addUserData(range: tableView!.stateArray[0], fueld: tableView!.stateArray[1])
+        tableView!.rangeField.text = ""
+        tableView!.petrolField.text = ""
+        tableView!.moneyField.text = ""
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Embed Segue" {

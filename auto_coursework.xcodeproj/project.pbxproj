@@ -16,12 +16,13 @@
 		934856A61EA9184100818E56 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934856A51EA9184100818E56 /* CustomTabBar.swift */; };
 		934856A81EA92A9800818E56 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934856A71EA92A9800818E56 /* CustomTabBarItem.swift */; };
 		934856AD1EAA50C900818E56 /* AddInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934856AC1EAA50C900818E56 /* AddInfoViewController.swift */; };
+		9359609F1ECBBEEB0057D438 /* WaitServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9359609E1ECBBEEB0057D438 /* WaitServerViewController.swift */; };
+		935960A11ECC82CB0057D438 /* ImageViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935960A01ECC82CB0057D438 /* ImageViewExtention.swift */; };
+		935960A51ECC86510057D438 /* CarStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935960A41ECC86510057D438 /* CarStatsViewController.swift */; };
 		939DE28E1EBA4923004D9083 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE28D1EBA4923004D9083 /* CustomLabel.swift */; };
 		939DE2901EBA89BE004D9083 /* NavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE28F1EBA89BE004D9083 /* NavigationBarController.swift */; };
 		939DE2941EBA8AEF004D9083 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE2931EBA8AEF004D9083 /* TableViewCell.swift */; };
 		939DE2981EBB3CC2004D9083 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE2971EBB3CC2004D9083 /* Car.swift */; };
-		939DE29A1EBB3D1F004D9083 /* CarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE2991EBB3D1F004D9083 /* CarStore.swift */; };
-		939DE29C1EBB402E004D9083 /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE29B1EBB402E004D9083 /* CarsViewController.swift */; };
 		939DE29E1EBB5766004D9083 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE29D1EBB5766004D9083 /* DataSource.swift */; };
 		939DE2A21EBBD226004D9083 /* AddInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE2A11EBBD226004D9083 /* AddInfoTableViewController.swift */; };
 		939DE2A91EBCB50F004D9083 /* StatisticsOutgoingPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE2A81EBCB50E004D9083 /* StatisticsOutgoingPanelViewController.swift */; };
@@ -67,12 +68,13 @@
 		934856A51EA9184100818E56 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		934856A71EA92A9800818E56 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
 		934856AC1EAA50C900818E56 /* AddInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInfoViewController.swift; sourceTree = "<group>"; };
+		9359609E1ECBBEEB0057D438 /* WaitServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitServerViewController.swift; sourceTree = "<group>"; };
+		935960A01ECC82CB0057D438 /* ImageViewExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewExtention.swift; sourceTree = "<group>"; };
+		935960A41ECC86510057D438 /* CarStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStatsViewController.swift; sourceTree = "<group>"; };
 		939DE28D1EBA4923004D9083 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		939DE28F1EBA89BE004D9083 /* NavigationBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
 		939DE2931EBA8AEF004D9083 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		939DE2971EBB3CC2004D9083 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
-		939DE2991EBB3D1F004D9083 /* CarStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStore.swift; sourceTree = "<group>"; };
-		939DE29B1EBB402E004D9083 /* CarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
 		939DE29D1EBB5766004D9083 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		939DE2A11EBBD226004D9083 /* AddInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInfoTableViewController.swift; sourceTree = "<group>"; };
 		939DE2A81EBCB50E004D9083 /* StatisticsOutgoingPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsOutgoingPanelViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +139,6 @@
 			children = (
 				939DE29D1EBB5766004D9083 /* DataSource.swift */,
 				939DE2971EBB3CC2004D9083 /* Car.swift */,
-				939DE2991EBB3D1F004D9083 /* CarStore.swift */,
 				BAE70ECF1ECA005800E82950 /* CarIndex.swift */,
 				BAE70ED11ECA054600E82950 /* CarStatus.swift */,
 			);
@@ -159,17 +160,19 @@
 		939DE2A71EBCB416004D9083 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				931C810E1EC61BE800C25DFD /* GraphicViewController.swift */,
 				931C81081EC37D7A00C25DFD /* PredictiveTextFieldViewController.swift */,
 				931C81061EC10A7B00C25DFD /* SetFirstCarTableViewController.swift */,
+				9359609E1ECBBEEB0057D438 /* WaitServerViewController.swift */,
 				93009A951EBCE45B0028DCCA /* GreetingViewController.swift */,
+				931C810E1EC61BE800C25DFD /* GraphicViewController.swift */,
 				939DE2A81EBCB50E004D9083 /* StatisticsOutgoingPanelViewController.swift */,
 				93D11F471EA8F14A00AC71B9 /* CustomTabBarViewController.swift */,
-				939DE29B1EBB402E004D9083 /* CarsViewController.swift */,
 				934856AC1EAA50C900818E56 /* AddInfoViewController.swift */,
 				939DE2A11EBBD226004D9083 /* AddInfoTableViewController.swift */,
 				939DE28F1EBA89BE004D9083 /* NavigationBarController.swift */,
 				93B1AAF11EB8FC5E0018349E /* UserSettingsViewController.swift */,
+				935960A01ECC82CB0057D438 /* ImageViewExtention.swift */,
+				935960A41ECC86510057D438 /* CarStatsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -442,22 +445,23 @@
 				93D11F481EA8F14A00AC71B9 /* CustomTabBarViewController.swift in Sources */,
 				934856A61EA9184100818E56 /* CustomTabBar.swift in Sources */,
 				939DE29E1EBB5766004D9083 /* DataSource.swift in Sources */,
-				939DE29A1EBB3D1F004D9083 /* CarStore.swift in Sources */,
 				93B1AAF21EB8FC5E0018349E /* UserSettingsViewController.swift in Sources */,
 				BAE70ED01ECA005800E82950 /* CarIndex.swift in Sources */,
 				931C810F1EC61BE800C25DFD /* GraphicViewController.swift in Sources */,
 				939DE2941EBA8AEF004D9083 /* TableViewCell.swift in Sources */,
 				93009A961EBCE45B0028DCCA /* GreetingViewController.swift in Sources */,
+				935960A51ECC86510057D438 /* CarStatsViewController.swift in Sources */,
 				BAE70ECE1EC8A3EF00E82950 /* DataManager.swift in Sources */,
 				931C81091EC37D7A00C25DFD /* PredictiveTextFieldViewController.swift in Sources */,
 				931C81071EC10A7B00C25DFD /* SetFirstCarTableViewController.swift in Sources */,
 				939DE2AB1EBCC3F6004D9083 /* EdgeShadowLayer.swift in Sources */,
 				93D11F461EA8F14A00AC71B9 /* AppDelegate.swift in Sources */,
+				9359609F1ECBBEEB0057D438 /* WaitServerViewController.swift in Sources */,
 				939DE2981EBB3CC2004D9083 /* Car.swift in Sources */,
 				939DE2901EBA89BE004D9083 /* NavigationBarController.swift in Sources */,
-				939DE29C1EBB402E004D9083 /* CarsViewController.swift in Sources */,
 				939DE2A91EBCB50F004D9083 /* StatisticsOutgoingPanelViewController.swift in Sources */,
 				934856AD1EAA50C900818E56 /* AddInfoViewController.swift in Sources */,
+				935960A11ECC82CB0057D438 /* ImageViewExtention.swift in Sources */,
 				934856A81EA92A9800818E56 /* CustomTabBarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

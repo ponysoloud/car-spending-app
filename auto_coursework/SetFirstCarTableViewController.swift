@@ -14,18 +14,11 @@ class SetFirstCarTableViewController: UITableViewController {
     
     @IBOutlet weak var hintLabel: CustomLabel!
     
-    
     @IBOutlet weak var brandLabel: UILabel!
     
     @IBOutlet weak var modelLabel: UILabel!
     
-    @IBOutlet weak var generationLabel: UILabel!
-    
-    @IBOutlet weak var serieLabel: UILabel!
-    
-    var index: Int?
-    
-    var returnedData: String?
+    @IBOutlet weak var buttonCell: TableViewCell!
     
     override func viewDidLoad() {
         
@@ -49,17 +42,11 @@ class SetFirstCarTableViewController: UITableViewController {
         startUsingButton.clipsToBounds = false
 
         startUsingButtonState(isHidden: true)
+
+        brandLabel.text = DataSource.userCar.mark
+        modelLabel.text = DataSource.userCar.model
         
-        if let i = index {
-            DataSource.updateData(updatedIndex: i, data: returnedData!)
-        }
-        
-        brandLabel.text = DataSource.currentBrand
-        modelLabel.text = DataSource.currentModel
-        generationLabel.text = DataSource.currentGeneration
-        serieLabel.text = DataSource.currentSerie
-        
-        if let text = serieLabel.text {
+        if let text = modelLabel.text {
             if text != "" {
                 startUsingButtonState(isHidden: false)
             }
@@ -71,6 +58,8 @@ class SetFirstCarTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier != "Embed") {
+        
         let tappedButtonIndex: Int = Int(segue.identifier ?? "0")!
         
         // get a reference to the second view controller
@@ -78,12 +67,18 @@ class SetFirstCarTableViewController: UITableViewController {
         
         // set a variable in the second view controller with the String to pass
         predictiveVC.senderIndex = tappedButtonIndex
+        }
     }
     
     @IBAction func startUsing(_ sender: Any) {
+        
+        /*
+        DataSource.createCar(mark: DataSource.currentBrand!, model: DataSource.currentModel!)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "entryVC")
         self.navigationController!.pushViewController(vc, animated: true)
+ */
     }
+    
     
 }

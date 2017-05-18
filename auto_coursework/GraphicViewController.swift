@@ -11,6 +11,8 @@ import Charts
 
 class GraphicViewController: UIViewController {
     
+    @IBOutlet weak var statusLabel: UILabel!
+    
     var lineChartView: LineChartView!
     
     @IBOutlet var mainView: UIView!
@@ -29,14 +31,29 @@ class GraphicViewController: UIViewController {
         mainView.addSubview(lineChartView)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        dispersion = DataSource.getUserDispersion()
-        expectedValue = DataSource.getUserExpectedValue()
-        userConsumption = DataSource.getUserConsumption()
+        dispersion = DataSource.userCar.index!.deviationConsumption
+        expectedValue = DataSource.userCar.index!.meanConsumption
+        userConsumption = DataSource.consumption
         
-        let arrayOfX = generateArrayOfX(from: -5.0, to: 5.1, step: 0.1)
+        DataSource.loadCarStatus {
+            var temp: String
+            switch DataSource.carStatus!.status {
+                case "OK":
+                    temp = "Все в порядке".uppercased()
+                case "alert":
+                    temp = "Проведите тех. обслуживание".uppercased()
+                case "warning":
+                    temp = "С вашей машиной что-то не так".uppercased()
+            default:
+                temp = ""
+            }
+            self.statusLabel.text = temp
+        }
+        
+        let arrayOfX = generateArrayOfX(from: expectedValue - 3 * dispersion, to: expectedValue + 3 * dispersion + 0.1, step: 0.1)
         let arrayOfY = generateArrayOfY(ArrayOfX: arrayOfX, μ: expectedValue, σ: dispersion)
         
         setChart(xaxisValues: arrayOfX, yaxisValues: arrayOfY)
@@ -88,8 +105,6 @@ class GraphicViewController: UIViewController {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled = false
         
-        
-        
         // Normal point
         let normalPointEntry = ChartDataEntry(x: expectedValue, y: normalDistribution(μ: expectedValue, σ: dispersion, x: expectedValue))
         var normalPointEntries: [ChartDataEntry] = []
@@ -97,7 +112,9 @@ class GraphicViewController: UIViewController {
         let lineChartDataSetNormalPoint = LineChartDataSet(values: normalPointEntries, label: "")
         lineChartDataSetNormalPoint.circleRadius = 3.5
         lineChartDataSetNormalPoint.drawCircleHoleEnabled = false
+        lineChartDataSetNormalPoint.drawValuesEnabled = false
         lineChartDataSetNormalPoint.setCircleColor(NSUIColor(red:0.56, green:0.60, blue:0.74, alpha:1.00))
+        
         
         // User point
         let userPointEntry = ChartDataEntry(x: getUserPosition().x, y: getUserPosition().y)
@@ -106,11 +123,16 @@ class GraphicViewController: UIViewController {
         let lineChartDataSetOnePoint = LineChartDataSet(values: userPointEntries, label: "")
         lineChartDataSetOnePoint.circleRadius = 5.5
         lineChartDataSetOnePoint.circleHoleRadius = 2.8
+        lineChartDataSetOnePoint.drawValuesEnabled = false
         lineChartDataSetOnePoint.setCircleColor(NSUIColor(red:0.56, green:0.60, blue:0.74, alpha:1.00))
         lineChartDataSetOnePoint.circleHoleColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
         
+        var dataSets = [lineChartDataSet,lineChartDataSetNormalPoint]
+        if userConsumption != 0 {
+            dataSets.append(lineChartDataSetOnePoint)
+        }
         
-        let lineChartData = LineChartData(dataSets: [lineChartDataSet, lineChartDataSetOnePoint, lineChartDataSetNormalPoint])
+        let lineChartData = LineChartData(dataSets: dataSets)
         lineChartView.data = lineChartData
     }
     

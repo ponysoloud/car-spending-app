@@ -23,7 +23,7 @@ class UserSettingsViewController: UITableViewController {
         topCell.setShadow()
         bottomCell.setShadow()
         
-        topCell.detailTextLabel?.text = DataSource.getCurrentCar().name
+        topCell.detailTextLabel?.text = DataSource.userCar.getName()
         
         donateCellLabel.setLineHeight(value: 3.5)
     }

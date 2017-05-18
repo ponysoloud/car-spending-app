@@ -10,18 +10,56 @@ import Foundation
 
 class Car {
     
-    var name: String!
+    var mark: String = ""
+    var model: String = ""
     var descr: String = ""
     var image: String = ""
     var index: CarIndex?
     
-    init (json: Dictionary<String, Any>) {
-        descr = json["description"] as! String
-        image = json["image"] as! String
+    init (json: [String:Any]) {
+        
+        if let descr = json["description"] as? String {
+            self.descr = descr
+        }
+        
+        if let image = json["image"] as? String {
+            self.image = image
+        }
+        
+        if let mark = json["mark"] as? String {
+            self.mark = mark
+        }
+        
+        if let model = json["model"] as? String {
+            self.model = model
+        }
+        
+        if let index = json["index"] as? [String: Any] {
+            self.index = CarIndex(json: index)
+        }
     }
     
-    init(name: String) {
-        self.name = name
+    init(mark: String, model: String) {
+        self.mark = mark
+        self.model = model
+    }
+    
+    func getName() -> String {
+        return "\(mark) \(model)"
+    }
+    
+    func toDictionary() -> [String: Any] {
+
+        let json : [String: Any] =
+            [
+                "mark":mark,
+                "model":model,
+                "description":descr,
+                "image":image,
+                "index": index?.toDictionary() ?? ""
+            ]
+
+        return json
     }
 }
 
