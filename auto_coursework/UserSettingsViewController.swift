@@ -29,6 +29,8 @@ class UserSettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if indexPath.row == 2 {
             let alertController = UIAlertController(title: "Внимание", message: "Вы хотите стереть все данные?", preferredStyle: .actionSheet)
             let DestructiveAction = UIAlertAction(title: "Стереть", style: .destructive) {
@@ -48,5 +50,7 @@ class UserSettingsViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
+    
+    
     
 }

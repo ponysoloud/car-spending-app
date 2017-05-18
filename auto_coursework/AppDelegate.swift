@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func resetApp() {
         print ("reset app")
         
+        DataSource.consumption = nil
+        
         DataSource.removeCar()
         
         let storyboard = UIStoryboard(name: "FirstEntry", bundle: nil)

@@ -781,7 +781,7 @@
                                 <rect key="frame" x="23" y="50" width="289" height="203"/>
                                 <color key="backgroundColor" red="0.97999999999999998" green="0.97999999999999998" blue="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СРЕДНИЙ РАСХОД ТОПЛИВА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIt-vl-qLj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="РАСРЕДЕЛЕНИЕ СРЕДНЕГО РАСХОДА ТОПЛИВА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIt-vl-qLj">
                                 <rect key="frame" x="23" y="260" width="289" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
