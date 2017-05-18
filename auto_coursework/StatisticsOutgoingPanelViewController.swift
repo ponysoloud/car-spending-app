@@ -35,6 +35,8 @@ class StatisticsOutgoingPanelViewController: UIViewController, UITableViewDelega
         let bottomShadow = EdgeShadowLayer(forView: statisticsView, edge: .Bottom)
         statisticsView.layer.addSublayer(topShadow)
         statisticsView.layer.addSublayer(bottomShadow)
+        
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,12 +49,6 @@ class StatisticsOutgoingPanelViewController: UIViewController, UITableViewDelega
         carDetailsLabel.text = DataSource.userCar.descr
         
         tableView.reloadData()
-        /*
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
-            self.normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
-        })
- */
-        
     }
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return 1

@@ -11,6 +11,8 @@ import UIKit
 class CarStatsViewController: UIViewController {
     @IBOutlet weak var carImageView: UIImageView!
     
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
@@ -22,6 +24,12 @@ class CarStatsViewController: UIViewController {
         scrollView.contentInset = insets
         
         carImageView.downloadedFrom(link: DataSource.userCar.image)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        heightConstraint.constant = CGFloat(700 + 60 * DataSource.userCar.measurements.count)
     }
     
 }
