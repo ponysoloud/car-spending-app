@@ -15,6 +15,8 @@ class Car {
     var descr: String = ""
     var image: String = ""
     var index: CarIndex?
+    var status: CarStatus?
+    var measurements: [Measurement] = []
     
     init (json: [String:Any]) {
         
@@ -37,6 +39,17 @@ class Car {
         if let index = json["index"] as? [String: Any] {
             self.index = CarIndex(json: index)
         }
+        
+        if let status = json["status"] as? [String: Any] {
+            self.status = CarStatus(json: status)
+        }
+        
+        if let measurements = json["measurements"] as? [[String: Any]] {
+            self.measurements = [Measurement]()
+            for m in measurements {
+                self.measurements.append(Measurement(json: m))
+            }
+        }
     }
     
     init(mark: String, model: String) {
@@ -56,7 +69,9 @@ class Car {
                 "model":model,
                 "description":descr,
                 "image":image,
-                "index": index?.toDictionary() ?? ""
+                "index": index?.toDictionary() ?? "",
+                "status": status?.toDictionary() ?? "",
+                "measurements": Measurement.toDictionary(array: measurements)
             ]
 
         return json

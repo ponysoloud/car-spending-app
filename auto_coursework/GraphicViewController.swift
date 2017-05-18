@@ -34,24 +34,27 @@ class GraphicViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        dispersion = DataSource.userCar.index!.deviationConsumption
-        expectedValue = DataSource.userCar.index!.meanConsumption
-        userConsumption = DataSource.consumption
+        dispersion = DataSource.userCar.index?.deviationConsumption ?? 1
+        expectedValue = DataSource.userCar.index?.meanConsumption ?? 0
+        userConsumption = DataSource.consumption ?? 0
         
-        DataSource.loadCarStatus {
+        let f  = {
             var temp: String
-            switch DataSource.carStatus!.status {
-                case "OK":
-                    temp = "Все в порядке".uppercased()
-                case "alert":
-                    temp = "Проведите тех. обслуживание".uppercased()
-                case "warning":
-                    temp = "С вашей машиной что-то не так".uppercased()
+            switch DataSource.userCar.status?.message ?? "" {
+            case "OK":
+                temp = "Все в порядке".uppercased()
+            case "alert":
+                temp = "Проведите тех. обслуживание".uppercased()
+            case "warning":
+                temp = "Возможно что-то не так".uppercased()
             default:
-                temp = ""
+                temp = "Статус автомобиля".uppercased()
             }
             self.statusLabel.text = temp
         }
+        
+        f()
+        DataSource.loadCarStatus(completion: f)
         
         let arrayOfX = generateArrayOfX(from: expectedValue - 3 * dispersion, to: expectedValue + 3 * dispersion + 0.1, step: 0.1)
         let arrayOfY = generateArrayOfY(ArrayOfX: arrayOfX, μ: expectedValue, σ: dispersion)

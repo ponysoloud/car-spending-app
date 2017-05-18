@@ -13,51 +13,47 @@ class DataSource {
     
     public static var userCar = Car(mark: "", model: "")
     
-    public static var carStatus : CarStatus?
-    
-    public static var consumption: Double = 0
-    
-    static var count: Double = 0
+    public static var consumption: Double?
     
     static func saveCar() {
         UserDefaults.standard.set(userCar.toDictionary(), forKey: "CurrentCar")
         UserDefaults.standard.synchronize()
     }
     
+    static func removeCar() {
+        userCar = Car(mark: "", model: "")
+        UserDefaults.standard.removeObject(forKey: "CurrentCar")
+        UserDefaults.standard.synchronize()
+    }
+    
     static func createCar(completion: @escaping ()->() = {}) {
+        
+        saveCar()
         
         loadCarIndex()
         loadCarInfo()
-        loadStatsFromFile()
+        loadCarStatus()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500), execute: {
-            saveCar()
             completion()
         })
-        /*
-        let destinationPath = NSTemporaryDirectory() + "cars_library.txt"
-        let myTextString = NSString(string: "\(mark);\(model)")
-        
-        do {
-            try myTextString.write(toFile: destinationPath, atomically: true, encoding: String.Encoding.utf8.rawValue)
-            userCar = Car(mark: mark, model: model)
-            
-            loadCarIndex()
-            loadStatsFromFile()
-            loadCarInfo()
-        } catch  {
-            print("error")
-        }
- */
+
     }
     
-    static func loadCar() -> Bool {
+    static func loadCar(completion: @escaping ()->() = {}) -> Bool {
         
         if let json = UserDefaults.standard.value(forKey: "CurrentCar") as?  [String:Any]  {
             userCar = Car(json: json)
+            recalcMean()
+            
             loadCarIndex()
             loadCarInfo()
-            loadStatsFromFile()
+            loadCarStatus()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500), execute: {
+                completion()
+            })
+            
             return true
         }
         return false
@@ -84,8 +80,11 @@ class DataSource {
     }
     
     static func loadCarStatus(completion: @escaping ()->() = {}) {
-        DataManager.getCarStatus(mark: userCar.mark, model: userCar.model, consumption: consumption) { carStatus in
-            self.carStatus = carStatus
+        guard let c = consumption else { return }
+        
+        DataManager.getCarStatus(mark: userCar.mark, model: userCar.model, consumption: c) { carStatus in
+            userCar.status = carStatus
+            saveCar()
             completion()
         }
     }
@@ -94,26 +93,50 @@ class DataSource {
         DataManager.getCarIndex(mark: userCar.mark, model: userCar.model) { carIndex in
             print(carIndex.meanConsumption)
             userCar.index = carIndex
+            saveCar()
         }
     }
     
     static func loadCarInfo() {
         DataManager.getCarInfo(mark: userCar.mark, model: userCar.model) { car in
             userCar.descr = car.descr
-            userCar.image = car.image//"http://cdn5.3dtuning.com/info/Audi%2080%201991%20Sedan/factory/6.jpg"//
-            print(userCar.image)
+            userCar.image = car.image
+            saveCar()
         }
     }
-
-    /*
-    static func getUserConsumption() -> Double {
-        if consumption != 0{
-            return consumption
-        }
+    
+    static func sendConsumption() {
+        guard let c = consumption else { return }
         
-        return expectedValue!
+        DataManager.sendConsumption(mark: userCar.mark, model: userCar.model, consumption: c) { carIndex in
+            userCar.index = carIndex
+            saveCar()
+        }
     }
-    */
+    
+    static func addUserData(measurement: Measurement) {
+        userCar.measurements.append(measurement)
+        recalcMean()
+        saveCar()
+        sendConsumption()
+        
+        print("mean: \(consumption ?? -1)")
+    }
+    
+    private static func recalcMean() {
+        var cons = 0.0
+        let mArr = userCar.measurements
+        for (i, m) in mArr.enumerated() {
+            if i == 0 { continue }
+            let range = m.range - mArr[i - 1].range
+            cons += (m.fuel / range) * 100
+        }
+        if mArr.count > 1 {
+            cons /= Double(mArr.count - 1)
+            consumption = cons
+        }
+    }
+    /*
     static func addUserData(range: String, fueld: String) {
         let r = Double(range)!
         let f = Double(fueld)!
@@ -121,7 +144,8 @@ class DataSource {
         
         updateFiles(range: r)
     }
-    
+    */
+    /*
     static func loadStatsFromFile() {
         let path = NSTemporaryDirectory() + "stats.txt"
         do {
@@ -181,5 +205,6 @@ class DataSource {
             print("error")
         }
     }
+ */
     
 }

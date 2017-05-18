@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="667" id="da8-Wb-ygg"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mET-Rw-HXS">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mET-Rw-HXS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0d-LU-a9J">
@@ -432,11 +432,24 @@
                                     <action selector="saveData:" destination="zCH-xn-2b6" eventType="touchUpInside" id="rWg-wq-9aB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-ug-xwc">
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <state key="normal" title="Отмена">
+                                    <color key="titleColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="zCH-xn-2b6" eventType="touchUpInside" id="flq-3S-Vqz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97999999999999998" green="0.97999999999999998" blue="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="zdU-Jv-7QB" firstAttribute="top" secondItem="oBW-ug-xwc" secondAttribute="bottom" constant="20" id="TS5-oT-Ufl"/>
+                            <constraint firstItem="oBW-ug-xwc" firstAttribute="top" secondItem="Zc8-j6-s2y" secondAttribute="bottom" constant="17" id="WZf-hK-sSE"/>
+                            <constraint firstItem="oBW-ug-xwc" firstAttribute="leading" secondItem="DxH-gd-dbs" secondAttribute="leadingMargin" id="YPe-SD-gO9"/>
                             <constraint firstItem="Zc8-j6-s2y" firstAttribute="centerY" secondItem="DxH-gd-dbs" secondAttribute="centerY" constant="193" id="b3C-JU-fQK"/>
                             <constraint firstItem="Zc8-j6-s2y" firstAttribute="centerX" secondItem="DxH-gd-dbs" secondAttribute="centerX" id="gdb-Km-emM"/>
+                            <constraint firstItem="oBW-ug-xwc" firstAttribute="trailing" secondItem="DxH-gd-dbs" secondAttribute="trailingMargin" id="mI7-Sw-qEI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Добавить" id="uL3-Ya-u6w"/>
@@ -451,8 +464,9 @@
         <!--Add-info-navigation-->
         <scene sceneID="4YZ-vN-yY2">
             <objects>
-                <navigationController title="Add-info-navigation" id="Byi-o9-n4n" customClass="NavigationBarController" customModule="auto_coursework" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="add_info" title="Add-info-navigation" id="Byi-o9-n4n" customClass="NavigationBarController" customModule="auto_coursework" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Add" id="5G1-bg-vv1"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XYI-7S-hPF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -603,15 +617,15 @@
                                 <color key="textColor" red="0.82999999999999996" green="0.84999999999999998" blue="0.90000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0dH-sh-ZQt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0dH-sh-ZQt">
                                 <rect key="frame" x="0.0" y="504" width="335" height="296"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="consumptionCell" rowHeight="59" id="9dW-JM-UJt">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="59"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="consumptionCell" rowHeight="60" id="9dW-JM-UJt" customClass="ConsumptionCell" customModule="auto_coursework" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9dW-JM-UJt" id="KBH-8I-iam">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.04.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odv-dw-8yG">
@@ -641,14 +655,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Petrol" translatesAutoresizingMaskIntoConstraints="NO" id="uR8-4t-Ny8">
-                                                    <rect key="frame" x="159" y="30" width="23" height="23"/>
+                                                    <rect key="frame" x="140" y="30" width="23" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="nnP-fr-Uvy"/>
                                                         <constraint firstAttribute="width" constant="23" id="waa-TT-4cA"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 л" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71J-7Z-MmS">
-                                                    <rect key="frame" x="186" y="33" width="57" height="21"/>
+                                                    <rect key="frame" x="167" y="33" width="57" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="GDo-2A-EqL"/>
                                                         <constraint firstAttribute="height" constant="21" id="bDm-lK-GoW"/>
@@ -658,16 +672,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Money" translatesAutoresizingMaskIntoConstraints="NO" id="DoC-1t-Y2a">
-                                                    <rect key="frame" x="244" y="30" width="23" height="23"/>
+                                                    <rect key="frame" x="225" y="30" width="23" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="23" id="dMM-SQ-RFf"/>
                                                         <constraint firstAttribute="height" constant="23" id="yuY-qz-rwO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 руб" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfF-Lt-Gqu">
-                                                    <rect key="frame" x="271" y="33" width="51" height="21"/>
+                                                    <rect key="frame" x="252" y="33" width="70" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="51" id="bId-MA-CWf"/>
+                                                        <constraint firstAttribute="width" constant="70" id="bId-MA-CWf"/>
                                                         <constraint firstAttribute="height" constant="21" id="laT-UZ-3QF"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -692,8 +706,18 @@
                                                 <constraint firstItem="al3-1n-bu5" firstAttribute="leading" secondItem="KBH-8I-iam" secondAttribute="leading" constant="25" id="vhO-J9-G5A"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="costLabel" destination="TfF-Lt-Gqu" id="kLG-99-HRq"/>
+                                            <outlet property="dateLabel" destination="Odv-dw-8yG" id="Qe4-6I-fjQ"/>
+                                            <outlet property="fuelLabel" destination="71J-7Z-MmS" id="kou-bl-LT7"/>
+                                            <outlet property="rangeLabel" destination="bcQ-qJ-9qm" id="EB9-QK-4mu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5nT-zt-fkY" id="GNt-1y-tqW"/>
+                                    <outlet property="delegate" destination="5nT-zt-fkY" id="R3W-4w-mLg"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -730,6 +754,7 @@
                         <outlet property="carNameLabel" destination="AmJ-It-Sts" id="GKc-IW-oHM"/>
                         <outlet property="normalValueLabel" destination="92p-jU-9cV" id="DzX-Ev-TWE"/>
                         <outlet property="statisticsView" destination="ADt-Ia-BH9" id="MGG-yd-7hy"/>
+                        <outlet property="tableView" destination="0dH-sh-ZQt" id="u4w-f2-a9l"/>
                         <outlet property="userValueLabel" destination="dMd-PI-6yM" id="Bnc-yC-Fjo"/>
                     </connections>
                 </viewController>

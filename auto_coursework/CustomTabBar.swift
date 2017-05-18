@@ -13,6 +13,7 @@ protocol CustomTabBarDataSource {
 }
 
 protocol CustomTabBarDelegate {
+    func shouldSelectViewController(tabBarView: CustomTabBar, viewControllerIndex: Int) -> Bool
     func didSelectViewController(tabBarView: CustomTabBar, atIndex index: Int )
 }
 
@@ -120,8 +121,13 @@ class CustomTabBar: UIView {
     
     // Action: change showing viewController index in customTabBarController
     func barItemTapped(sender: UIButton) {
+        
         // Get index of tapped tab bar button
         let index = tabBarButtons.index(of: sender)!
+        
+        if !delegate.shouldSelectViewController(tabBarView: self, viewControllerIndex: index) {
+            return
+        }
         
         // Change tab bar items color to display changing showing viewController
         animateTabBarSelection(from: selectedTabBarItemIndex, to: index)

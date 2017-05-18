@@ -9,11 +9,22 @@
 import Foundation
 
 class CarStatus {
-    var status: String
+    var message: String
     var pLevel: Double
     
-    init (json: Dictionary<String, Any>) {
-        status = json["car_status"] as! String
+    init (json: [String: Any]) {
+        message = json["car_status"] as! String
         pLevel = json["p_level"] as! Double
+    }
+    
+    func toDictionary() -> [String: Any] {
+        
+        let json : [String: Any] =
+            [
+                "car_status":message,
+                "p_level":pLevel
+            ]
+        
+        return json
     }
 }

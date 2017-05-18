@@ -12,7 +12,7 @@ class CustomTabBarViewController: UITabBarController, CustomTabBarDataSource, Cu
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.tabBar.isHidden = true
         
         let customTabBar = CustomTabBar(frame: self.tabBar.frame)
@@ -31,6 +31,15 @@ class CustomTabBarViewController: UITabBarController, CustomTabBarDataSource, Cu
     
     func didSelectViewController(tabBarView: CustomTabBar, atIndex index: Int ) {
         self.selectedIndex = index
+    }
+    
+    func shouldSelectViewController(tabBarView: CustomTabBar, viewControllerIndex: Int) -> Bool {
+        if (viewControllerIndex == 1) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "add_info")
+            present(vc!, animated: true, completion: nil)
+            return false
+        }
+        return true
     }
     
 }

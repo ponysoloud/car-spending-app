@@ -19,6 +19,8 @@
 		9359609F1ECBBEEB0057D438 /* WaitServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9359609E1ECBBEEB0057D438 /* WaitServerViewController.swift */; };
 		935960A11ECC82CB0057D438 /* ImageViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935960A01ECC82CB0057D438 /* ImageViewExtention.swift */; };
 		935960A51ECC86510057D438 /* CarStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935960A41ECC86510057D438 /* CarStatsViewController.swift */; };
+		935960A91ECD732A0057D438 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935960A81ECD732A0057D438 /* Measurement.swift */; };
+		935960AB1ECD8DCA0057D438 /* ConsumptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935960AA1ECD8DCA0057D438 /* ConsumptionCell.swift */; };
 		939DE28E1EBA4923004D9083 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE28D1EBA4923004D9083 /* CustomLabel.swift */; };
 		939DE2901EBA89BE004D9083 /* NavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE28F1EBA89BE004D9083 /* NavigationBarController.swift */; };
 		939DE2941EBA8AEF004D9083 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DE2931EBA8AEF004D9083 /* TableViewCell.swift */; };
@@ -71,6 +73,8 @@
 		9359609E1ECBBEEB0057D438 /* WaitServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitServerViewController.swift; sourceTree = "<group>"; };
 		935960A01ECC82CB0057D438 /* ImageViewExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewExtention.swift; sourceTree = "<group>"; };
 		935960A41ECC86510057D438 /* CarStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStatsViewController.swift; sourceTree = "<group>"; };
+		935960A81ECD732A0057D438 /* Measurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		935960AA1ECD8DCA0057D438 /* ConsumptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumptionCell.swift; sourceTree = "<group>"; };
 		939DE28D1EBA4923004D9083 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		939DE28F1EBA89BE004D9083 /* NavigationBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
 		939DE2931EBA8AEF004D9083 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				939DE2971EBB3CC2004D9083 /* Car.swift */,
 				BAE70ECF1ECA005800E82950 /* CarIndex.swift */,
 				BAE70ED11ECA054600E82950 /* CarStatus.swift */,
+				935960A81ECD732A0057D438 /* Measurement.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 				934856A71EA92A9800818E56 /* CustomTabBarItem.swift */,
 				939DE2931EBA8AEF004D9083 /* TableViewCell.swift */,
 				939DE28D1EBA4923004D9083 /* CustomLabel.swift */,
+				935960AA1ECD8DCA0057D438 /* ConsumptionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 				939DE2941EBA8AEF004D9083 /* TableViewCell.swift in Sources */,
 				93009A961EBCE45B0028DCCA /* GreetingViewController.swift in Sources */,
 				935960A51ECC86510057D438 /* CarStatsViewController.swift in Sources */,
+				935960A91ECD732A0057D438 /* Measurement.swift in Sources */,
 				BAE70ECE1EC8A3EF00E82950 /* DataManager.swift in Sources */,
 				931C81091EC37D7A00C25DFD /* PredictiveTextFieldViewController.swift in Sources */,
 				931C81071EC10A7B00C25DFD /* SetFirstCarTableViewController.swift in Sources */,
@@ -463,6 +470,7 @@
 				934856AD1EAA50C900818E56 /* AddInfoViewController.swift in Sources */,
 				935960A11ECC82CB0057D438 /* ImageViewExtention.swift in Sources */,
 				934856A81EA92A9800818E56 /* CustomTabBarItem.swift in Sources */,
+				935960AB1ECD8DCA0057D438 /* ConsumptionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

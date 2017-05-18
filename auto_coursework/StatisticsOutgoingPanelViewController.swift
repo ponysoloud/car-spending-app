@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatisticsOutgoingPanelViewController: UIViewController {
+class StatisticsOutgoingPanelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var carNameLabel: UILabel!
     
     @IBOutlet weak var carDetailsLabel: UILabel!
@@ -18,6 +18,8 @@ class StatisticsOutgoingPanelViewController: UIViewController {
     @IBOutlet weak var userValueLabel: UILabel!
     
     @IBOutlet weak var normalValueLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         let viewLayer = view.layer
@@ -33,11 +35,46 @@ class StatisticsOutgoingPanelViewController: UIViewController {
         let bottomShadow = EdgeShadowLayer(forView: statisticsView, edge: .Bottom)
         statisticsView.layer.addSublayer(topShadow)
         statisticsView.layer.addSublayer(bottomShadow)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        userValueLabel.text = String(format: "%.1f", DataSource.consumption)
+        userValueLabel.text = DataSource.consumption == nil ? "-" : String(format: "%.1f", DataSource.consumption!)
         normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
         
         carNameLabel.text = DataSource.userCar.getName()
         carDetailsLabel.text = DataSource.userCar.descr
+        
+        tableView.reloadData()
+        /*
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
+            self.normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
+        })
+ */
+        
     }
+    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return DataSource.userCar.measurements.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "consumptionCell") as! ConsumptionCell
+        cell.setCell(m: DataSource.userCar.measurements[tableView.numberOfRows(inSection: indexPath.section) - indexPath.row - 1])
+        return cell
+    }
+    
+    
 }

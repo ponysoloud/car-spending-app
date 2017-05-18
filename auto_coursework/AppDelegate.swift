@@ -13,9 +13,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    static var shared : AppDelegate?
+    
+    func resetApp() {
+        print ("reset app")
+        
+        DataSource.removeCar()
+        
+        let storyboard = UIStoryboard(name: "FirstEntry", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()
+        self.window?.rootViewController = vc
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
         // Example usage of DataManager
         /*
         DataManager.getCarMarks { (marks) in
@@ -60,8 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
          */
         
+        AppDelegate.shared = self
         
-        if (false && DataSource.loadCar()) {
+        if DataSource.loadCar() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "entryVC")
             self.window?.rootViewController = vc

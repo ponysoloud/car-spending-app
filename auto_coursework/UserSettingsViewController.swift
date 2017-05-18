@@ -28,5 +28,25 @@ class UserSettingsViewController: UITableViewController {
         donateCellLabel.setLineHeight(value: 3.5)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            let alertController = UIAlertController(title: "Внимание", message: "Вы хотите стереть все данные?", preferredStyle: .actionSheet)
+            let DestructiveAction = UIAlertAction(title: "Стереть", style: .destructive) {
+                (result : UIAlertAction) -> Void in
+                
+                AppDelegate.shared?.resetApp()
+                
+            }
+            
+            let okAction = UIAlertAction(title: "Отмена", style: .default) {
+                (result : UIAlertAction) -> Void in
+  
+            }
+            
+            alertController.addAction(DestructiveAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     
 }
