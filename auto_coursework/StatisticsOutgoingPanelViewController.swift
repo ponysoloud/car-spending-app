@@ -43,10 +43,16 @@ class StatisticsOutgoingPanelViewController: UIViewController, UITableViewDelega
         super.viewWillAppear(animated)
         
         userValueLabel.text = DataSource.consumption == nil ? "-" : String(format: "%.1f", DataSource.consumption!)
-        normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
         
         carNameLabel.text = DataSource.userCar.getName()
         carDetailsLabel.text = DataSource.userCar.descr
+        
+        let f = {
+            self.normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
+        }
+        
+        f()
+        DataSource.loadCarIndex(completion: f)
         
         tableView.reloadData()
     }

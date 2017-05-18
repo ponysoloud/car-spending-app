@@ -57,26 +57,6 @@ class DataSource {
             return true
         }
         return false
-        /*
-        let path = NSTemporaryDirectory() + "cars_library.txt"
-        
-        if FileHandle(forWritingAtPath: path) != nil {
-            do {
-                let readFile = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-                var splitArray = readFile.components(separatedBy: ";")
-                userCar = Car(mark: splitArray[0], model: splitArray[1])
-                loadCarIndex()
-                loadStatsFromFile()
-                loadCarInfo()
-            } catch  {
-                return false
-            }
-        
-            return true
-        }
-        
-        return false
-         */
     }
     
     static func loadCarStatus(completion: @escaping ()->() = {}) {
@@ -89,11 +69,11 @@ class DataSource {
         }
     }
     
-    static func loadCarIndex() {
+    static func loadCarIndex(completion: @escaping ()->() = {}) {
         DataManager.getCarIndex(mark: userCar.mark, model: userCar.model) { carIndex in
-            print(carIndex.meanConsumption)
             userCar.index = carIndex
             saveCar()
+            completion()
         }
     }
     
@@ -120,7 +100,7 @@ class DataSource {
         saveCar()
         sendConsumption()
         
-        print("mean: \(consumption ?? -1)")
+        //print("mean: \(consumption ?? -1)")
     }
     
     private static func recalcMean() {
@@ -136,75 +116,5 @@ class DataSource {
             consumption = cons
         }
     }
-    /*
-    static func addUserData(range: String, fueld: String) {
-        let r = Double(range)!
-        let f = Double(fueld)!
-        evaluateConsumption(range: r, fueld: f)
-        
-        updateFiles(range: r)
-    }
-    */
-    /*
-    static func loadStatsFromFile() {
-        let path = NSTemporaryDirectory() + "stats.txt"
-        do {
-            let readFile = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            var splitArray = readFile.components(separatedBy: ";")
-            consumption = Double(splitArray[0]) ?? 0
-            count = Double(splitArray[1]) ?? 0
-        } catch  {
-            print("error")
-        }
-    }
-    
-    static func getPreviousRangeFromFile() -> Double {
-        let path = NSTemporaryDirectory() + "previous_range.txt"
-        var previousRange: Double
-        do {
-            let readFile = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            previousRange = Double(readFile)!
-            
-            return previousRange
-        } catch  {
-            print("error")
-        }
-        
-        return 0
-    }
-    
-    @discardableResult static func evaluateConsumption(range: Double, fueld: Double) -> Double {
-        let newConsumption = fueld/(range-getPreviousRangeFromFile())*100
-        
-        consumption = (consumption*count+newConsumption)/(count+1)
-        count += 1
-        
-        DataManager.sendConsumption(mark: userCar.mark, model: userCar.model, consumption: consumption) { carIndex in
-            userCar.index = carIndex
-        }
-        
-        return consumption
-    }
-    
-    static func updateFiles(range: Double) {
-        let pathStats = NSTemporaryDirectory() + "stats.txt"
-        
-        let input = "\(Double((Int)(consumption * 10000))/10000.0);\(count)"
-        print(consumption)
-        do {
-            try input.write(toFile: pathStats, atomically: false, encoding: String.Encoding.utf8)
-        } catch  {
-            print("error")
-        }
-        
-        let pathRange = NSTemporaryDirectory() + "previous_range.txt"
-        let inputRange = "\(range)"
-        do {
-            try inputRange.write(toFile: pathRange, atomically: false, encoding: String.Encoding.utf8)
-        } catch  {
-            print("error")
-        }
-    }
- */
     
 }
