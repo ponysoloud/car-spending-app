@@ -34,16 +34,6 @@ class DataSource {
         updateCarInfo {
             completion()
         }
-        /*
-        loadCarIndex()
-        loadCarInfo()
-        loadCarStatus()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500), execute: {
-            completion()
-        })
-
- */
     }
     
     static func updateCarInfo(completion: @escaping ()->() = {}) {
@@ -62,11 +52,6 @@ class DataSource {
         
         if let json = UserDefaults.standard.value(forKey: "CurrentCar") as?  [String:Any]  {
             userCar = Car(json: json)
-            /*
-            DataManager.getUser(completion: { (name, data) in
-                userCar.measurements = data
-            })
- */
             
             updateCarInfo {
                 completion()

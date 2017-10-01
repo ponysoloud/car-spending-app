@@ -115,29 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 DataManager.token = token
             })
         }
-        //loadCar()
         
-        /*
-        DataManager.login(email: "kravtsovguy@gmail.com", password: "carapp", completion: { status in
-            
-            DataManager.getUser { (name, car) in
-                DataSource.userCar = car
-            }
-            
-            /*
-            DataManager.getUser(completion: { (name, data) in
-                DataSource.userCar = data
-            })
- */
-        })
- */
-        /*
-        if DataSource.loadCar() {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "entryVC")
-            self.window?.rootViewController = vc
-        }
-        */
         UINavigationBar.appearance().shadowImage = UIImage ()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         return true
@@ -188,14 +166,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             
             self.loadCar()
-            
-            /*
-            user?.getIDToken(completion: { (token, error) in
-                DataManager.token = token
-                
-                
-            })
- */
         }
     }
     

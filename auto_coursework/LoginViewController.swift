@@ -26,21 +26,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         GIDSignIn.sharedInstance().uiDelegate = self
        // GIDSignIn.sharedInstance().signIn()
-        
-        
-        
-        /*
-        if (Auth.auth().currentUser != nil) {
-            print("already logged in")
-            
-            do {
-                try Auth.auth().signOut()
-                GIDSignIn.sharedInstance().signOut()
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-            }
-        }
- */
     }
     
     public func setWaiting(wait: Bool) {
@@ -51,11 +36,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
         setWaiting(wait: true)
-        /*
-        let storyboard = UIStoryboard(name: "FirstEntry", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "wait")
-        AppDelegate.shared?.window?.rootViewController = vc
- */
     }
  
     
