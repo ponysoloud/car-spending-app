@@ -72,6 +72,11 @@ class SetFirstCarTableViewController: UITableViewController {
     
     @IBAction func startUsing(_ sender: Any) {
         
+        DataSource.createCar() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "entryVC")
+            self.navigationController!.pushViewController(vc, animated: true)
+        }
         /*
         DataSource.createCar(mark: DataSource.currentBrand!, model: DataSource.currentModel!)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

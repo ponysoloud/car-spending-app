@@ -18,6 +18,12 @@ class Car {
     var status: CarStatus?
     var measurements: [Measurement] = []
     
+    var isBlank : Bool {
+        get {
+            return mark == "" && model == ""
+        }
+    }
+    
     init (json: [String:Any]) {
         
         if let descr = json["description"] as? String {

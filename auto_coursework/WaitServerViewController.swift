@@ -13,12 +13,13 @@ class WaitServerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         DataSource.createCar() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "entryVC")
             self.navigationController!.pushViewController(vc, animated: true)
         }
+ */
     }
     
     

@@ -8,5 +8,7 @@ target 'auto_coursework' do
   # Pods for auto_coursework
   pod 'Charts'
   pod 'Alamofire'
+  pod 'GoogleSignIn'
+  pod 'Firebase/Auth'
 
 end

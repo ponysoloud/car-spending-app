@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Jm-vr-YWn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Jm-vr-YWn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +43,7 @@
                                     <color key="titleColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xhk-89-Vfj" kind="show" id="LHJ-qB-3xG"/>
+                                    <segue destination="qOJ-ut-fyy" kind="show" id="bqQ-i7-MIg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,7 +71,6 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="7Jm-vr-YWn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iig-M6-rFJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.97999999999999998" green="0.97999999999999998" blue="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -82,7 +81,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="Ug0-cj-ppc" kind="relationship" relationship="rootViewController" id="T61-MR-GZO"/>
+                        <segue destination="Ug0-cj-ppc" kind="relationship" relationship="rootViewController" id="jr6-Ew-3sG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7Y-QY-dqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -109,7 +108,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, укажите информацию о своем автомобиле" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhN-UY-WtE" customClass="CustomLabel" customModule="auto_coursework" customModuleProvider="target">
-                                                    <rect key="frame" x="48" y="32" width="279" height="110"/>
+                                                    <rect key="frame" x="48" y="52" width="279" height="110"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="110" id="ADR-50-Tob"/>
                                                     </constraints>
@@ -141,7 +140,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Марка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5bC-JN-NcV">
-                                                    <rect key="frame" x="25" y="0.0" width="292" height="60"/>
+                                                    <rect key="frame" x="35" y="0.0" width="282" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -170,7 +169,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Модель" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wv5-mo-93o">
-                                                    <rect key="frame" x="25" y="0.0" width="292" height="60"/>
+                                                    <rect key="frame" x="35" y="0.0" width="282" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -248,7 +247,7 @@
         <!--Wait Server View Controller-->
         <scene sceneID="lzP-9P-HcS">
             <objects>
-                <viewController id="wce-sj-4oo" customClass="WaitServerViewController" customModule="auto_coursework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wait" id="wce-sj-4oo" customClass="WaitServerViewController" customModule="auto_coursework" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y7M-UF-GCS"/>
                         <viewControllerLayoutGuide type="bottom" id="nF3-Mj-H13"/>
@@ -384,9 +383,102 @@
             </objects>
             <point key="canvasLocation" x="2352.8000000000002" y="138.98050974512745"/>
         </scene>
+        <!--Greeting-page-->
+        <scene sceneID="prY-sG-hHD">
+            <objects>
+                <viewController title="Greeting-page" id="qOJ-ut-fyy" customClass="LoginViewController" customModule="auto_coursework" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2WY-4b-PTi"/>
+                        <viewControllerLayoutGuide type="bottom" id="4hd-gv-vCD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hoQ-95-SxG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, войдите в свой аккаунт для синхронизации или пропустите этот шаг" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXN-23-oLd" customClass="CustomLabel" customModule="auto_coursework" customModuleProvider="target">
+                                <rect key="frame" x="48" y="205" width="279" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="GRf-Vr-OOW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <color key="textColor" red="0.55834794044494629" green="0.60119187831878662" blue="0.74119454622268677" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTZ-Ia-Edb">
+                                <rect key="frame" x="33" y="595" width="309" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="309" id="Sbs-ne-YX0"/>
+                                    <constraint firstAttribute="height" constant="50" id="kWS-nq-ANS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Пропустить">
+                                    <color key="titleColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xhk-89-Vfj" kind="show" id="U6p-3b-nHF"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBn-P0-SEk" customClass="GIDSignInButton">
+                                <rect key="frame" x="33" y="379" width="309" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdw-X9-lHI">
+                                        <rect key="frame" x="98.5" y="12.5" width="112" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="112" id="cvx-4f-wgT"/>
+                                            <constraint firstAttribute="height" constant="28" id="oZP-cp-XQ4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                        <color key="textColor" red="0.99705451726913452" green="0.82374156682892941" blue="0.20769974331412125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kdw-X9-lHI" firstAttribute="centerY" secondItem="TBn-P0-SEk" secondAttribute="centerY" id="eIo-Qq-wsV"/>
+                                    <constraint firstItem="Kdw-X9-lHI" firstAttribute="centerX" secondItem="TBn-P0-SEk" secondAttribute="centerX" id="j94-vW-FZA"/>
+                                    <constraint firstAttribute="height" constant="53" id="nUv-vr-Rmu"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTM-Z2-UBq">
+                                <rect key="frame" x="131" y="391" width="112" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="3HA-Dx-iOS"/>
+                                    <constraint firstAttribute="width" constant="112" id="9iP-r3-GQH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                <color key="textColor" red="0.55834794040000002" green="0.60119187829999998" blue="0.74119454620000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97999999999999998" green="0.97999999999999998" blue="0.97999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="TBn-P0-SEk" firstAttribute="leading" secondItem="hoQ-95-SxG" secondAttribute="leadingMargin" constant="17" id="5ig-af-9hQ"/>
+                            <constraint firstItem="fTZ-Ia-Edb" firstAttribute="centerY" secondItem="hoQ-95-SxG" secondAttribute="centerY" constant="286.5" id="E0b-lf-1S6"/>
+                            <constraint firstItem="TBn-P0-SEk" firstAttribute="top" secondItem="IXN-23-oLd" secondAttribute="bottom" constant="8" id="ZUj-eb-xaI"/>
+                            <constraint firstItem="IXN-23-oLd" firstAttribute="top" secondItem="hoQ-95-SxG" secondAttribute="top" constant="205" id="ael-hD-L5r"/>
+                            <constraint firstItem="fTZ-Ia-Edb" firstAttribute="centerX" secondItem="hoQ-95-SxG" secondAttribute="centerX" id="bCk-Bv-Cum"/>
+                            <constraint firstItem="vTM-Z2-UBq" firstAttribute="centerX" secondItem="hoQ-95-SxG" secondAttribute="centerX" id="bh5-F0-WKN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IXN-23-oLd" secondAttribute="trailing" constant="32" id="k2n-Xk-Daw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TBn-P0-SEk" secondAttribute="trailing" constant="17" id="k6T-IF-QGZ"/>
+                            <constraint firstItem="IXN-23-oLd" firstAttribute="leading" secondItem="hoQ-95-SxG" secondAttribute="leadingMargin" constant="32" id="oZr-gZ-P0P"/>
+                            <constraint firstItem="vTM-Z2-UBq" firstAttribute="top" secondItem="IXN-23-oLd" secondAttribute="bottom" constant="20" id="zD5-Go-ooI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XDm-Y6-c2w"/>
+                    <connections>
+                        <outlet property="loadingLabel" destination="vTM-Z2-UBq" id="wcw-hr-Hen"/>
+                        <outlet property="signinbutton" destination="TBn-P0-SEk" id="xti-Rv-ppH"/>
+                        <outlet property="skipbutton" destination="fTZ-Ia-Edb" id="pIf-ss-aW8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iTU-8z-C2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.80000000000001" y="895.50224887556226"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LHJ-qB-3xG"/>
         <segue reference="nrR-Nu-i3V"/>
+        <segue reference="U6p-3b-nHF"/>
     </inferredMetricsTieBreakers>
 </document>

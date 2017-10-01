@@ -48,7 +48,9 @@ class StatisticsOutgoingPanelViewController: UIViewController, UITableViewDelega
         carDetailsLabel.text = DataSource.userCar.descr
         
         let f = {
-            self.normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
+            if (DataSource.userCar.index != nil) {
+                self.normalValueLabel.text = String(format: "%.1f", DataSource.userCar.index!.meanConsumption)
+            }
         }
         
         f()

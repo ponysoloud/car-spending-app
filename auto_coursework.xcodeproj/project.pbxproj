@@ -37,6 +37,8 @@
 		93D11F501EA8F14A00AC71B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D11F4E1EA8F14A00AC71B9 /* LaunchScreen.storyboard */; };
 		93D11F5B1EA8F14A00AC71B9 /* auto_courseworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D11F5A1EA8F14A00AC71B9 /* auto_courseworkTests.swift */; };
 		93D11F661EA8F14A00AC71B9 /* auto_courseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D11F651EA8F14A00AC71B9 /* auto_courseworkUITests.swift */; };
+		BA192CB11F8117A500C983E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA192CB01F8117A500C983E5 /* LoginViewController.swift */; };
+		BA192CB31F811B2800C983E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA192CAF1F81151C00C983E5 /* GoogleService-Info.plist */; };
 		BAE70ECE1EC8A3EF00E82950 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ECD1EC8A3EF00E82950 /* DataManager.swift */; };
 		BAE70ED01ECA005800E82950 /* CarIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ECF1ECA005800E82950 /* CarIndex.swift */; };
 		BAE70ED21ECA054600E82950 /* CarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ED11ECA054600E82950 /* CarStatus.swift */; };
@@ -98,6 +100,8 @@
 		93D11F651EA8F14A00AC71B9 /* auto_courseworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = auto_courseworkUITests.swift; sourceTree = "<group>"; };
 		93D11F671EA8F14A00AC71B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4755C46FB355239FE38F2D1 /* Pods_auto_coursework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_auto_coursework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA192CAF1F81151C00C983E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA192CB01F8117A500C983E5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAE70ECD1EC8A3EF00E82950 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BAE70ECF1ECA005800E82950 /* CarIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarIndex.swift; sourceTree = "<group>"; };
 		BAE70ED11ECA054600E82950 /* CarStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStatus.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				93B1AAF11EB8FC5E0018349E /* UserSettingsViewController.swift */,
 				935960A01ECC82CB0057D438 /* ImageViewExtention.swift */,
 				935960A41ECC86510057D438 /* CarStatsViewController.swift */,
+				BA192CB01F8117A500C983E5 /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				93009A931EBCE37C0028DCCA /* FirstEntry.storyboard */,
 				93D11F4E1EA8F14A00AC71B9 /* LaunchScreen.storyboard */,
 				93D11F511EA8F14A00AC71B9 /* Info.plist */,
+				BA192CAF1F81151C00C983E5 /* GoogleService-Info.plist */,
 			);
 			path = auto_coursework;
 			sourceTree = "<group>";
@@ -327,7 +333,7 @@
 				TargetAttributes = {
 					93D11F411EA8F14A00AC71B9 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = PEYKHN6GF6;
+						DevelopmentTeam = JFP62Y85PG;
 						ProvisioningStyle = Automatic;
 					};
 					93D11F551EA8F14A00AC71B9 = {
@@ -371,6 +377,7 @@
 			files = (
 				93D11F501EA8F14A00AC71B9 /* LaunchScreen.storyboard in Resources */,
 				93D11F4D1EA8F14A00AC71B9 /* Assets.xcassets in Resources */,
+				BA192CB31F811B2800C983E5 /* GoogleService-Info.plist in Resources */,
 				93009A941EBCE37C0028DCCA /* FirstEntry.storyboard in Resources */,
 				93D11F4B1EA8F14A00AC71B9 /* Main.storyboard in Resources */,
 			);
@@ -399,9 +406,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-auto_coursework/Pods-auto_coursework-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -414,9 +434,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-auto_coursework/Pods-auto_coursework-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -429,13 +452,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-auto_coursework-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -445,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA192CB11F8117A500C983E5 /* LoginViewController.swift in Sources */,
 				939DE2A21EBBD226004D9083 /* AddInfoTableViewController.swift in Sources */,
 				BAE70ED21ECA054600E82950 /* CarStatus.swift in Sources */,
 				939DE28E1EBA4923004D9083 /* CustomLabel.swift in Sources */,
@@ -625,10 +652,10 @@
 			baseConfigurationReference = 193C9B0F89CA685AE724AD86 /* Pods-auto_coursework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PEYKHN6GF6;
+				DEVELOPMENT_TEAM = JFP62Y85PG;
 				INFOPLIST_FILE = auto_coursework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ap.auto-coursework";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mekravtsov.auto-coursework";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -639,10 +666,10 @@
 			baseConfigurationReference = 7B0A407356F3217459C91002 /* Pods-auto_coursework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PEYKHN6GF6;
+				DEVELOPMENT_TEAM = JFP62Y85PG;
 				INFOPLIST_FILE = auto_coursework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ap.auto-coursework";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mekravtsov.auto-coursework";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

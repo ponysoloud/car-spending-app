@@ -28,8 +28,13 @@ class DataSource {
     
     static func createCar(completion: @escaping ()->() = {}) {
         
+        DataManager.setUser(data: userCar)
         saveCar()
         
+        updateCarInfo {
+            completion()
+        }
+        /*
         loadCarIndex()
         loadCarInfo()
         loadCarStatus()
@@ -38,21 +43,34 @@ class DataSource {
             completion()
         })
 
+ */
+    }
+    
+    static func updateCarInfo(completion: @escaping ()->() = {}) {
+        recalcMean()
+        
+        loadCarIndex()
+        loadCarInfo()
+        loadCarStatus()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500), execute: {
+            completion()
+        })
     }
     
     static func loadCar(completion: @escaping ()->() = {}) -> Bool {
         
         if let json = UserDefaults.standard.value(forKey: "CurrentCar") as?  [String:Any]  {
             userCar = Car(json: json)
-            recalcMean()
-            
-            loadCarIndex()
-            loadCarInfo()
-            loadCarStatus()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500), execute: {
-                completion()
+            /*
+            DataManager.getUser(completion: { (name, data) in
+                userCar.measurements = data
             })
+ */
+            
+            updateCarInfo {
+                completion()
+            }
             
             return true
         }
@@ -96,6 +114,7 @@ class DataSource {
     
     static func addUserData(measurement: Measurement) {
         userCar.measurements.append(measurement)
+        DataManager.setUser(data: userCar)
         recalcMean()
         saveCar()
         sendConsumption()

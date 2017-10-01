@@ -7,16 +7,39 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
     
     static var shared : AppDelegate?
     
-    func resetApp() {
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            GIDSignIn.sharedInstance().signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func resetApp(shouldDeleteData: Bool) {
         print ("reset app")
+        
+        
+        if (DataManager.isLogged)
+        {
+            if (shouldDeleteData) {
+                DataManager.setUser(data: Car(mark: "", model: ""), completion: { (status) in
+                    self.signOut()
+                })
+            } else {
+                signOut()
+            }
+        }
         
         DataSource.consumption = nil
         
@@ -28,6 +51,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
         // Example usage of DataManager
         /*
         DataManager.getCarMarks { (marks) in
@@ -74,15 +103,113 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppDelegate.shared = self
         
+        
+        if (DataSource.loadCar()) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = vc
+        }
+        
+        if (DataManager.isLogged) {
+            Auth.auth().currentUser?.getIDToken(completion: { (token, error) in
+                DataManager.token = token
+            })
+        }
+        //loadCar()
+        
+        /*
+        DataManager.login(email: "kravtsovguy@gmail.com", password: "carapp", completion: { status in
+            
+            DataManager.getUser { (name, car) in
+                DataSource.userCar = car
+            }
+            
+            /*
+            DataManager.getUser(completion: { (name, data) in
+                DataSource.userCar = data
+            })
+ */
+        })
+ */
+        /*
         if DataSource.loadCar() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "entryVC")
             self.window?.rootViewController = vc
         }
-        
+        */
         UINavigationBar.appearance().shadowImage = UIImage ()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         return true
+    }
+    
+    func loadCar() {
+        if (DataManager.isLogged) {
+            Auth.auth().currentUser?.getIDToken(completion: { (token, error) in
+                DataManager.token = token
+                DataManager.getUser(completion: { (name, car) in
+                    if (car.isBlank)
+                    {
+                        LoginViewController.shared?.skipbutton.sendActions(for: .touchUpInside)
+                        return
+                    }
+                    
+                    DataSource.userCar = car
+                    DataSource.saveCar()
+                    
+                    DataSource.updateCarInfo {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateInitialViewController()
+                        self.window?.rootViewController = vc
+                    }
+                    
+                })
+            })
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if error != nil {
+            // ...
+            LoginViewController.shared?.setWaiting(wait: false)
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        // ...
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if error != nil {
+                // ...
+                return
+            }
+            
+            self.loadCar()
+            
+            /*
+            user?.getIDToken(completion: { (token, error) in
+                DataManager.token = token
+                
+                
+            })
+ */
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
