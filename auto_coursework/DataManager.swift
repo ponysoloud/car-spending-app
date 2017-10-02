@@ -18,7 +18,7 @@ class DataManager {
             return Auth.auth().currentUser != nil
         }
     }
-    private static let endpoint : String = "http://192.168.0.100:5000/"//"https://car-app-service.herokuapp.com/"
+    private static let endpoint : String = "https://car-app-service.herokuapp.com/"
     
     private class func request(url:String, method: HTTPMethod, parameters: Parameters?, completion: @escaping (Dictionary<String,Any>) -> Void){
         

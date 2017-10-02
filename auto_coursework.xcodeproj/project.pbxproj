@@ -39,6 +39,7 @@
 		93D11F661EA8F14A00AC71B9 /* auto_courseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D11F651EA8F14A00AC71B9 /* auto_courseworkUITests.swift */; };
 		BA192CB11F8117A500C983E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA192CB01F8117A500C983E5 /* LoginViewController.swift */; };
 		BA192CB31F811B2800C983E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA192CAF1F81151C00C983E5 /* GoogleService-Info.plist */; };
+		BA192CB51F823E5D00C983E5 /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA192CB41F823E5D00C983E5 /* TotalCell.swift */; };
 		BAE70ECE1EC8A3EF00E82950 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ECD1EC8A3EF00E82950 /* DataManager.swift */; };
 		BAE70ED01ECA005800E82950 /* CarIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ECF1ECA005800E82950 /* CarIndex.swift */; };
 		BAE70ED21ECA054600E82950 /* CarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE70ED11ECA054600E82950 /* CarStatus.swift */; };
@@ -102,6 +103,7 @@
 		A4755C46FB355239FE38F2D1 /* Pods_auto_coursework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_auto_coursework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA192CAF1F81151C00C983E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA192CB01F8117A500C983E5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BA192CB41F823E5D00C983E5 /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = "<group>"; };
 		BAE70ECD1EC8A3EF00E82950 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BAE70ECF1ECA005800E82950 /* CarIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarIndex.swift; sourceTree = "<group>"; };
 		BAE70ED11ECA054600E82950 /* CarStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStatus.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				939DE2931EBA8AEF004D9083 /* TableViewCell.swift */,
 				939DE28D1EBA4923004D9083 /* CustomLabel.swift */,
 				935960AA1ECD8DCA0057D438 /* ConsumptionCell.swift */,
+				BA192CB41F823E5D00C983E5 /* TotalCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				93B1AAF21EB8FC5E0018349E /* UserSettingsViewController.swift in Sources */,
 				BAE70ED01ECA005800E82950 /* CarIndex.swift in Sources */,
 				931C810F1EC61BE800C25DFD /* GraphicViewController.swift in Sources */,
+				BA192CB51F823E5D00C983E5 /* TotalCell.swift in Sources */,
 				939DE2941EBA8AEF004D9083 /* TableViewCell.swift in Sources */,
 				93009A961EBCE45B0028DCCA /* GreetingViewController.swift in Sources */,
 				935960A51ECC86510057D438 /* CarStatsViewController.swift in Sources */,

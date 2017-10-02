@@ -429,7 +429,7 @@
                                             <constraint firstAttribute="height" constant="28" id="oZP-cp-XQ4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
-                                        <color key="textColor" red="0.99705451726913452" green="0.82374156682892941" blue="0.20769974331412125" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="0.99705451726913452" green="0.6789187415074458" blue="0.21981142872122028" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -440,7 +440,7 @@
                                     <constraint firstAttribute="height" constant="53" id="nUv-vr-Rmu"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTM-Z2-UBq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузка..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTM-Z2-UBq">
                                 <rect key="frame" x="131" y="391" width="112" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="3HA-Dx-iOS"/>

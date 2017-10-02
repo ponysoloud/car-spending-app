@@ -716,6 +716,54 @@
                                             <outlet property="rangeLabel" destination="bcQ-qJ-9qm" id="EB9-QK-4mu"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="totalCell" rowHeight="60" id="h77-q7-SKW" customClass="TotalCell" customModule="auto_coursework" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88" width="335" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h77-q7-SKW" id="8oq-Ed-8IU">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.04.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REI-7O-ZRK">
+                                                    <rect key="frame" x="29" y="6" width="70" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="tnc-ma-1K8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.82999999999999996" green="0.84999999999999998" blue="0.90000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Money" translatesAutoresizingMaskIntoConstraints="NO" id="NBD-bm-0pT">
+                                                    <rect key="frame" x="29" y="30" width="23" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="23" id="d6v-S1-s4R"/>
+                                                        <constraint firstAttribute="height" constant="23" id="fLF-6U-A4i"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Потрачено за месяц 200 руб" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyF-uV-obw">
+                                                    <rect key="frame" x="56" y="33" width="269" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="7d7-Uh-UMU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.56000000000000005" green="0.59999999999999998" blue="0.73999999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NBD-bm-0pT" firstAttribute="leading" secondItem="8oq-Ed-8IU" secondAttribute="leading" constant="29" id="0n5-1J-umT"/>
+                                                <constraint firstItem="REI-7O-ZRK" firstAttribute="top" secondItem="8oq-Ed-8IU" secondAttribute="top" constant="6" id="9oG-RU-RWO"/>
+                                                <constraint firstAttribute="trailing" secondItem="NyF-uV-obw" secondAttribute="trailing" constant="10" id="JrO-Hi-h1C"/>
+                                                <constraint firstItem="NBD-bm-0pT" firstAttribute="top" secondItem="8oq-Ed-8IU" secondAttribute="top" constant="30" id="M7i-Zm-cZF"/>
+                                                <constraint firstItem="REI-7O-ZRK" firstAttribute="leading" secondItem="8oq-Ed-8IU" secondAttribute="leading" constant="29" id="TaU-iY-ax5"/>
+                                                <constraint firstItem="NyF-uV-obw" firstAttribute="leading" secondItem="NBD-bm-0pT" secondAttribute="trailing" constant="4" id="hcT-rX-0hQ"/>
+                                                <constraint firstItem="NyF-uV-obw" firstAttribute="top" secondItem="8oq-Ed-8IU" secondAttribute="top" constant="33" id="pmM-ri-sCO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="costLabel" destination="NyF-uV-obw" id="gFx-uM-0LT"/>
+                                            <outlet property="dateLabel" destination="REI-7O-ZRK" id="TrY-xe-B2y"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="5nT-zt-fkY" id="GNt-1y-tqW"/>
